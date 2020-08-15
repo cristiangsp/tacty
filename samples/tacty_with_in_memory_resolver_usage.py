@@ -1,4 +1,5 @@
 from tacty.command_bus import CommandBus
+from tacty.handler import Handler
 from tacty.resolver import InMemoryResolver
 
 
@@ -7,7 +8,7 @@ class PrintNumberCommand:
         self.number = number
 
 
-class PrintNumberHandler():
+class PrintNumberHandler(Handler):
     def handle(self, command: PrintNumberCommand):
         print(command.number)
 

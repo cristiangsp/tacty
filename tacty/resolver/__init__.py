@@ -4,6 +4,7 @@ from typing import Dict
 from tacty.exception import (
     HandlerForCommandAlreadyExistsError,
     HandlerForCommandDoesNotExistError,
+    HandlerIsNotAHandlerSubClassError,
 )
 from tacty.handler import Handler
 
@@ -19,6 +20,9 @@ class InMemoryResolver(Resolver):
         self.handlers: Dict = {}
 
     def add_handler(self, command: type, handler: Handler) -> None:
+        if not issubclass(handler.__class__, Handler):
+            raise HandlerIsNotAHandlerSubClassError()
+
         if command in self.handlers.keys():
             raise HandlerForCommandAlreadyExistsError()
 

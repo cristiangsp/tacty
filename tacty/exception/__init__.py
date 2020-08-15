@@ -4,3 +4,7 @@ class HandlerForCommandAlreadyExistsError(Exception):
 
 class HandlerForCommandDoesNotExistError(Exception):
     pass
+
+
+class HandlerIsNotAHandlerSubClassError(Exception):
+    pass
