@@ -31,10 +31,19 @@ command_bus.handle(command)
 ## Initialization
 
 ``` python
-## In order to match Commands and Handlers, Tacty uses a Resolver class that defines the matching strategy.
+# A Resolver is a class that given a Command returns its Handler. The InMemoryResolver receives pairs of Command and Handlers keeping them connected in memory.
 resolver = InMemoryResolver()
 resolver.add_handler(PrintNumberCommand, PrintNumberHandler())
 
-## An instance of a resolver must be passes when creating the command bus.
-command_bus = CommandBus(resolver)
+# The CommandHandlerMiddleware uses a resolver to match a Command with its Handler and executes it.
+command_handler_middleware = CommandHandlerMiddleware(resolver)
+
+# The CommandBus receives a list of middlewares that are executed when processing a Command. In order to fulfill its minimum functionality (executing a Handler given a Command) an instance of the CommandHandlerMiddleware must be passed as the last element.
+command_bus = CommandBus([command_handler_middleware])
 ```
+
+## Examples
+Find next some examples using Tacty:
+
+- [Using Tacty with the in memory resolver](https://github.com/cristiangsp/tacty/blob/master/samples/tacty_with_in_memory_resolver_usage.py)
+- [Using Tacty with a custom middleware](https://github.com/cristiangsp/tacty/blob/master/samples/tacty_with_custom_middleware.py)
