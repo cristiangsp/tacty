@@ -8,3 +8,7 @@ class HandlerForCommandDoesNotExistError(Exception):
 
 class HandlerIsNotAHandlerSubClassError(Exception):
     pass
+
+
+class ResolverIsNotAResolverSubClassError(Exception):
+    pass

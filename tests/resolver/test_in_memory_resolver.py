@@ -18,7 +18,7 @@ class TestHandler(Handler):
         pass
 
 
-class WrongHandler:
+class NotASubclassOfHandler:
     pass
 
 
@@ -36,12 +36,12 @@ class TestInMemoryResolver(unittest.TestCase):
 
     def test_adding_a_wrong_handler_fails(self):
         # Arrange
-        wrong_handler = WrongHandler
+        not_a_subclass_of_handler = NotASubclassOfHandler()
         resolver = InMemoryResolver()
 
         # Act & Assert
         with self.assertRaises(HandlerIsNotAHandlerSubClassError):
-            resolver.add_handler(TestCommand, wrong_handler)
+            resolver.add_handler(TestCommand, not_a_subclass_of_handler)
 
     def test_adding_a_handler_to_a_command_that_already_has_one_fails(self):
         # Arrange
