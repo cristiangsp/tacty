@@ -2,7 +2,7 @@
 
 An extensible command bus for Python 3 inspired by the [Tactician](https://tactician.thephpleague.com/) Project.
 
-## Introduction
+## Introduction
 
 A *command bus* is a software component that performs operations in which the data and the execution steps are decoupled. The data for the operation is contained in a *Command* object and the execution steps are contained in a *Handler*. The responsibility of the command bus is matching a Command with its Handler and execute it.
 
@@ -42,7 +42,8 @@ command_handler_middleware = CommandHandlerMiddleware(resolver)
 command_bus = CommandBus([command_handler_middleware])
 ```
 
-## Examples
+## Examples
+
 Find next some examples using Tacty:
 
 - [Using Tacty with the in memory resolver](https://github.com/cristiangsp/tacty/blob/master/samples/tacty_with_in_memory_resolver_usage.py)
