@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="tacty",  # Replace with your own username
-    version="1.0.2",
+    version="1.1.0",
     author="Cristian Gonzalez",
     author_email="cristian.gsp@gmail.com",
     description="An extensible command bus for Python 3",
