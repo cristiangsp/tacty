@@ -21,5 +21,5 @@ class CommandBus:
         
         return last_callable
 
-    def handle(self, command) -> None:
-        self.middleware_chain(command)
+    def handle(self, command) -> any:
+        return self.middleware_chain(command)

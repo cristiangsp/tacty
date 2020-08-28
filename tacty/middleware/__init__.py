@@ -16,4 +16,4 @@ class CommandHandlerMiddleware(Middleware):
 
     def execute(self, command: object, next: Callable) -> any:
         handler = self.resolver.resolve(type(command))
-        handler.handle(command)
+        return handler.handle(command)

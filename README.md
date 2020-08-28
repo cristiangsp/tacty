@@ -48,3 +48,4 @@ Find next some examples using Tacty:
 
 - [Using Tacty with the in memory resolver](https://github.com/cristiangsp/tacty/blob/master/samples/tacty_with_in_memory_resolver_usage.py)
 - [Using Tacty with a custom middleware](https://github.com/cristiangsp/tacty/blob/master/samples/tacty_with_custom_middleware.py)
+- [Using Tacty with a Handler that retuns a value](https://github.com/cristiangsp/tacty/blob/master/samples/tacty_with_handler_that_returns_a_value.py)
