@@ -19,8 +19,9 @@ class PrintNumberHandler(Handler):
 class PrintLoggerMiddleware(Middleware):
     def execute(self, command: object, next: Callable) -> any:
         print("Executing " + command.__class__.__name__)
-        next(command)
+        result = next(command)
         print(command.__class__.__name__ + " executed")
+        return result
 
 
 if __name__ == "__main__":
