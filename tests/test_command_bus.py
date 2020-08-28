@@ -26,7 +26,7 @@ class LasttMiddleware(Middleware):
 
 
 class TestCommandBus(unittest.TestCase):
-    def test_adding_a_handler(self):
+    def test_middlewares_are_executed_in_order(self):
         # Arrange
         command_bus = CommandBus(
             [FirstMiddleware(), SecondMiddleware(), LasttMiddleware()]
