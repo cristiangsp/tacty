@@ -20,7 +20,7 @@ class SecondMiddleware(Middleware):
         next(command)
 
 
-class LasttMiddleware(Middleware):
+class LastMiddleware(Middleware):
     def execute(self, command: object, next: Callable) -> any:
         command.middleware_call('last_middleware')
 
@@ -29,7 +29,7 @@ class TestCommandBus(unittest.TestCase):
     def test_middlewares_are_executed_in_order(self):
         # Arrange
         command_bus = CommandBus(
-            [FirstMiddleware(), SecondMiddleware(), LasttMiddleware()]
+            [FirstMiddleware(), SecondMiddleware(), LastMiddleware()]
         )
 
         expected_middleware_calls = [
